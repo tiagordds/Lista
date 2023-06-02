@@ -1,0 +1,30 @@
+import os
+lista = []
+
+while True:
+    comando = input('Selecione uma opção: \n'
+        '[i]nserir [a]pagar [l]istar: ')
+    if comando == 'i':
+        inserir = input('O que deseja inserir na lista? ')
+        lista.append(inserir)
+        os.system('cls')
+    elif comando == 'a':
+        if len(lista) == 0:
+            print('A lista esta vazia')
+            continue
+        apagar = int(input('Escolha o numero do índice para apagar: '))
+        if apagar > len(lista) or apagar <len(lista):
+            apagar = 0
+        lista.pop(apagar)
+        os.system('cls')
+        print('Índice inexistente, por favor, selecione outra opção. ')
+    elif comando == 'l':
+        if len(lista) == 0:
+            print('A lista está vazia')
+            continue
+        os.system('cls')
+        for item in enumerate(lista):
+            indice, nome = item
+            print(f'{indice}, {nome}')
+    else:
+        print('Por favor, digite apenas *i* *a* ou *l*')
